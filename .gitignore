@@ -1,2 +1,13 @@
 wpvlhc-aog-jekyll-source.zip
 .DS_Store
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example

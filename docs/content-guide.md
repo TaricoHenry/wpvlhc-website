@@ -34,7 +34,7 @@ Do not infer a weekly service time from the old one-off events. Replace the regi
 
 News appears automatically on `/news/`, the homepage, and `/feed.xml`. Future-dated posts are hidden until a build happens after their date. GitHub Pages is not a scheduled publisher; rebuild after the publication time.
 
-For a working draft use `_drafts/short-title.md`. Preview unpublished posts with `bundle exec jekyll serve --drafts --unpublished`. Never add those flags to the production workflow.
+For a working draft use `_drafts/short-title.md`. Preview unpublished posts with `bundle exec jekyll serve --drafts --unpublished --baseurl ""`. Never add those flags to the production workflow.
 
 ## Sermons
 

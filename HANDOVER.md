@@ -2,11 +2,19 @@
 
 Prepared October 31, 2026. This records the state at handover; inspect the new checkout before assuming it is unchanged.
 
+## Repository follow-up — October 31, 2026
+
+The user created [TaricoHenry/wpvlhc-website](https://github.com/TaricoHenry/wpvlhc-website) after the migration. Its first two Pages builds failed because the Jekyll source and `.github/workflows/` were committed inside `wpvlhc-aog-jekyll/`. GitHub ran its default Jekyll 3.10 builder at the outer repository root and could not find `sections/leadership.html`.
+
+The local correction moves the source, including hidden files and workflows, directly to the Git repository root. `_config.yml` now has the project address (`https://taricohenry.github.io`, `/wpvlhc-website`), and the local source ZIP is excluded from publishing. Use the current [README](README.md) commands: clear `baseurl` explicitly when previewing or checking root hosting.
+
+These follow-up changes are uncommitted. The user must select **GitHub Actions** in repository **Settings → Pages**, then commit/push the corrected layout to run the custom Jekyll 4 workflow. No commit, push, settings change, or deployment was made by Codex. The original migration record below is historical; its unknown-repository/address statements predate this follow-up.
+
 ## Start here
 
 The WordPress-to-Jekyll migration has been implemented and verified locally. Continue working on this Jekyll site in the new project. The user wants the original church style preserved, conventional structure, clear documentation, and eventual GitHub Pages hosting.
 
-**The user explicitly requested no commits.** No commits, new repository, remote changes, or deployment have been made during this work. The user plans to create the new repository and set up Pages. Preserve that boundary unless the user gives new instructions.
+**The user explicitly requested no commits.** Codex has made no commits, pushes, remote changes, or deployment. The user created the repository after migration; the local follow-up above corrects its layout. Preserve the no-commit boundary unless the user gives new instructions.
 
 Read [README.md](README.md), then the focused guides below. Inspect Git status and any project instructions before editing. Preserve existing user changes.
 
@@ -100,13 +108,13 @@ From the new repository root, with Ruby 3.4.1 selected:
 
 ```sh
 bundle install
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload --baseurl ""
 ```
 
 Preview at <http://localhost:4000>. Restart after `_config.yml` changes. Stop the preview before switching to other build output if necessary.
 
 ```sh
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --baseurl ""
 python3 scripts/check_site.py
 
 JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --baseurl /preview-site
@@ -125,7 +133,7 @@ The temporary fixtures and preview server are not part of the site. GitHub Actio
 
 ## GitHub Pages state
 
-`url` and `baseurl` are still empty in `_config.yml` because the new repository/domain is not known.
+`url` and `baseurl` now target `https://taricohenry.github.io/wpvlhc-website/`. The custom workflow overrides them with GitHub metadata. The default Pages builder failed on the old nested layout; no successful hosted deployment is claimed. Select **GitHub Actions** as the Pages source and push the local layout correction to run the intended workflow.
 
 - `.github/workflows/check.yml` checks root/subpath builds on pull requests or manual runs; it does not publish.
 - `.github/workflows/pages.yml` builds, checks, and deploys on pushes to `main` or manual runs once Pages is enabled. It gets the actual domain and base path from GitHub and uploads only `_site/`.

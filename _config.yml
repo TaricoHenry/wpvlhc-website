@@ -5,9 +5,9 @@ description: >-
   Connect with our church, explore our ministries, and join us in person or online.
 lang: en-GY
 timezone: America/Guyana
-# Set these when the new repository/domain is ready. See docs/github-pages.md.
-url: ""
-baseurl: ""
+# Project address; the Pages workflow overrides these with GitHub's metadata.
+url: "https://taricohenry.github.io"
+baseurl: "/wpvlhc-website"
 author: World Prayer Vision Life Healing Center AOG
 logo: /assets/images/church/logo.png
 image: /assets/images/church/church-exterior.png
@@ -79,6 +79,7 @@ exclude:
   - .gitignore
   - .jekyll-cache
   - .sass-cache
+  - wpvlhc-aog-jekyll-source.zip
   - "**/README.md"
   - "**/*LICENSE*"
   - "**/OFL.txt"

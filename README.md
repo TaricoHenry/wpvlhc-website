@@ -1,6 +1,6 @@
 # WPVLHC AOG — Jekyll website
 
-The standalone website for **World Prayer Vision Life Healing Center AOG**, Anna Catherina, Guyana. This folder is the **root of the new website repository**: copy its contents, including hidden files, into your new repository.
+The standalone website for **World Prayer Vision Life Healing Center AOG**, Anna Catherina, Guyana. The Jekyll source files and `.github/workflows/` belong directly in the [repository root](https://github.com/TaricoHenry/wpvlhc-website), alongside each other.
 
 Built with Jekyll 4, Liquid, Sass, and a small navigation script. No WordPress, database, npm installation, or paid theme is required.
 
@@ -8,23 +8,23 @@ Continuing in a new Codex project? Read [HANDOVER.md](HANDOVER.md) for the curre
 
 ## Run locally
 
-Install Ruby **3.4.1** (see `.ruby-version`), Bundler, and Python 3 (for the link checker). Use a Ruby version manager rather than the macOS system Ruby. Then run these commands **inside this folder**:
+Install Ruby **3.4.1** (see `.ruby-version`), Bundler, and Python 3 (for the link checker). Use a Ruby version manager rather than the macOS system Ruby. Then run these commands **at the repository root**:
 
 ```sh
 bundle install
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload --baseurl ""
 ```
 
-Open <http://localhost:4000>. Stop the server with `Ctrl+C`. Restart after changing `_config.yml`.
+Open <http://localhost:4000>. The local command clears the production repository path for this preview. Stop the server with `Ctrl+C`. Restart after changing `_config.yml`.
 
 ## Verify before publishing
 
 ```sh
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --baseurl ""
 python3 scripts/check_site.py
 
 # Also check a GitHub Pages project-repository path:
-JEKYLL_ENV=production bundle exec jekyll build --baseurl /preview-site
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --baseurl /preview-site
 python3 scripts/check_site.py --baseurl /preview-site
 ```
 
@@ -51,7 +51,7 @@ The checker verifies internal links and fragments, CSS assets, image attributes,
 │   └── js/              # Accessible mobile navigation
 ├── docs/                # Setup, editing, design, migration notes, content examples
 ├── scripts/             # Offline built-site checker
-├── .github/workflows/   # Pull-request checks and future GitHub Pages publishing
+├── .github/workflows/   # Pull-request checks and GitHub Pages publishing
 ├── Gemfile              # Ruby dependencies
 ├── Gemfile.lock         # Reproducible dependency versions
 ├── index.html           # Homepage: section order and composition
@@ -74,9 +74,11 @@ Each authoring area has a short README explaining its role. Those READMEs are ex
 | Page content | `_pages/` |
 | Add a news post, sermon, or event | Follow [the content guide](docs/content-guide.md) |
 
-## GitHub Pages, when you're ready
+## GitHub Pages
 
-Follow [docs/github-pages.md](docs/github-pages.md). The included workflow builds and checks the site before deployment, and obtains the correct domain and repository path from GitHub. You still need to create your repository and select **GitHub Actions** as its Pages source. Nothing has been committed or deployed as part of this migration.
+Follow [docs/github-pages.md](docs/github-pages.md). In the repository's **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The included workflow uses Jekyll 4, checks the site, and obtains the domain and repository path from GitHub before deployment. The configured project address is <https://taricohenry.github.io/wpvlhc-website/>.
+
+GitHub only discovers workflows in the repository-root `.github/workflows/` directory. Keep `Gemfile`, `_config.yml`, `index.html`, and the authoring folders at that same root; nesting the project inside `wpvlhc-aog-jekyll/` prevents the intended workflow from running. See the hosting guide for the October 31 build diagnosis and the required Pages setting.
 
 ## Migration notes
 
