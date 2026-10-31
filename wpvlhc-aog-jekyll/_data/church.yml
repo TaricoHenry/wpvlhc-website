@@ -1,0 +1,22 @@
+name: World Prayer Vision Life Healing Center AOG
+short_name: WPVLHC AOG
+welcome: A place where everyone joins together.
+introduction: >-
+  Welcome to World Prayer Vision Life Healing Center AOG.
+  Join our church family in Anna Catherina as we come together for worship,
+  prayer, and fellowship.
+email: WPVLHCAOG@gmail.com
+phones:
+  - label: +592 600 0200
+    href: "tel:+5926000200"
+  - label: +592 276 1650
+    href: "tel:+5922761650"
+address: Church Street, Anna Catherina, West Coast Demerara, Guyana
+location: Anna Catherina, Guyana
+# The original site links to Anna Catherina, not an exact church map pin.
+map_url: https://www.google.com/maps/place/Anna+Catherina,+Guyana/@6.835002,-58.2992615,14z/
+facebook_url: https://www.facebook.com/WorldPrayerVision
+# Optional verified destinations. Leave blank to show contact-based alternatives.
+livestream_url: ""
+giving_url: ""
+service_times: []

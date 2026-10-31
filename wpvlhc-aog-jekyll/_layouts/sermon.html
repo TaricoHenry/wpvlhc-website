@@ -1,0 +1,11 @@
+---
+layout: page
+---
+<article class="prose">
+  <p class="meta">{% if page.preacher %}{{ page.preacher }} · {% endif %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time></p>
+  {% if page.scripture %}<p><strong>Scripture:</strong> {{ page.scripture }}</p>{% endif %}
+  {{ content }}
+  {% if page.video_url %}<p><a class="button" href="{{ page.video_url | escape }}">Watch sermon <span aria-hidden="true">↗</span></a></p>{% endif %}
+  {% if page.audio_path %}<audio controls preload="none" aria-label="Sermon audio"><source src="{{ page.audio_path | relative_url }}">Your browser does not support audio. <a href="{{ page.audio_path | relative_url }}">Download the sermon</a>.</audio>{% endif %}
+</article>
+<p class="back-link"><a href="{{ '/sermons/' | relative_url }}">← All sermons</a></p>

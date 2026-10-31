@@ -1,0 +1,108 @@
+.button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .8rem 1.6rem; border: 2px solid var(--brand); background: var(--brand); color: var(--ink); text-decoration: none; font-weight: 600; font-size: .875rem; line-height: 1.5; transition: background-color .15s, border-color .15s; }
+.button:hover { background: var(--ink); border-color: var(--ink); color: white; }
+.button-small { min-height: 44px; padding: .5rem 1.1rem; border-radius: 24px; }
+.button-outline { border-color: #ffffffb0; background: transparent; color: white; }
+.button-outline:hover { background: white; border-color: white; color: var(--ink); }
+.button-group { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.text-link { font-size: .875rem; font-weight: 600; text-decoration: none; }
+.text-link:hover { text-decoration: underline; }
+.site-header { position: relative; z-index: 5; background: white; border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 104px; padding-block: 1rem; }
+.brand { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; color: var(--ink); font-weight: 700; font-size: 1.3rem; text-decoration: none; line-height: 1.3; }
+.brand img { width: 64px; height: 64px; }
+.brand small { display: block; max-width: 215px; margin-top: .3rem; color: var(--text); font-weight: 400; font-size: .65rem; line-height: 1.5; }
+.site-navigation { display: flex; align-items: center; gap: 1.5rem; }
+.site-navigation ul { display: flex; gap: 1.25rem; padding: 0; margin: 0; list-style: none; }
+.site-navigation li a { display: block; padding: .65rem 0; color: var(--ink); font-size: .8rem; font-weight: 600; text-decoration: none; }
+.site-navigation li a:hover, .site-navigation li a[aria-current] { color: var(--brand-dark); }
+.site-navigation li a[aria-current] { box-shadow: 0 2px var(--brand); }
+.menu-toggle { display: none; align-items: center; gap: .65rem; min-height: 44px; padding: .5rem .75rem; background: white; border: 1px solid var(--line); color: var(--ink); font-size: .85rem; }
+.menu-icon { width: 18px; height: 12px; border-block: 2px solid currentColor; position: relative; }
+.menu-icon::after { content: ''; position: absolute; top: 3px; left: 0; width: 18px; border-top: 2px solid currentColor; }
+.hero { position: relative; display: grid; align-items: center; min-height: 740px; padding-block: 6rem; isolation: isolate; color: white; text-align: center; background: var(--ink); }
+.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #15181b8c, #15181bb8); }
+.hero h1 { max-width: 940px; margin: 0 auto 2rem; color: white; font-size: clamp(2.8rem, 6.5vw, 5.3rem); line-height: 1.1; letter-spacing: -.035em; }
+.hero .eyebrow { color: #ffd0b0; margin-bottom: 1.5rem; }
+.hero-description { max-width: 650px; margin: 0 auto 2rem; font-size: 1.05rem; color: #f1f1f1; }
+.hero .button-group { justify-content: center; }
+.hero-location { margin: 2.5rem 0 0; font-size: .75rem; letter-spacing: .1em; }
+.leadership-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 390px)); justify-content: center; gap: 2.5rem; }
+.leader-card { overflow: hidden; border-radius: var(--radius); background: white; box-shadow: 0 4px 30px #2e2d2a0c; text-align: center; border: 1px solid var(--line); }
+.leader-card > img { width: 100%; aspect-ratio: 443 / 517; object-fit: cover; object-position: top center; }
+.leader-copy { padding: 1.75rem 1.25rem; }
+.leader-copy h3 { margin-bottom: .5rem; }
+.leader-copy p { font-size: .8rem; letter-spacing: .08em; margin-bottom: .75rem; }
+.leader-copy p:last-child { margin-bottom: 0; }
+.service-card { display: flex; flex-direction: column; border: 1px solid var(--line); background: white; }
+.service-card > img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.service-copy { display: flex; flex: 1; flex-direction: column; padding: 1.5rem; }
+.service-copy h3 { font-size: 1.1rem; }
+.service-copy p { font-size: .85rem; }
+.service-copy a { margin-top: auto; }
+.prayer-section { background: #f6f3ef; }
+.prayer-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.prayer-section .small-text { margin-top: 1rem; margin-bottom: 0; }
+.visit-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.visit-section address { margin-bottom: 2rem; }
+.empty-state { max-width: 780px; margin-inline: auto; text-align: center; padding: 2.5rem; border: 1px solid var(--line); background: white; }
+.empty-state h2 { font-size: 1.6rem; }
+.empty-state > :last-child { margin-bottom: 0; }
+.empty-state .button-group { justify-content: center; }
+.sermon-callout { border-top: 3px solid var(--brand); }
+.content-card, .ministry-card { border: 1px solid var(--line); padding: 2rem; background: white; }
+.content-card h3 a, .event-card h3 a { color: var(--ink); text-decoration: none; }
+.content-card h3 a:hover, .event-card h3 a:hover { color: var(--brand-dark); }
+.ministry-card { border-top: 3px solid var(--brand); }
+.ministry-card h2 { font-size: 1.4rem; }
+.ministry-number { display: block; margin-bottom: 1rem; font-size: .8rem; color: var(--brand-dark); font-weight: 600; }
+.contact-panel { padding: 2rem; border: 1px solid var(--line); background: var(--muted); scroll-margin-top: 2rem; }
+.contact-panel h2, .booking-note h2 { font-size: 1.6rem; }
+.contact-panel address { margin-bottom: 1.5rem; }
+.contact-panel .small-text { margin-top: 1rem; margin-bottom: 0; }
+.contact-list { padding: 0; list-style: none; }
+.contact-list a { display: inline-block; padding-block: .3rem; }
+.booking-note { margin-top: 3rem; padding: 2rem; border-left: 3px solid var(--brand); }
+.event-list { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.event-card { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 1.5rem; border: 1px solid var(--line); }
+.event-card p { margin-bottom: .75rem; }
+.event-date { align-self: start; display: grid; justify-items: center; padding: .75rem; background: var(--muted); border-top: 3px solid var(--brand); line-height: 1.4; }
+.event-date span { font-size: .75rem; text-transform: uppercase; }
+.event-date strong { font-size: 2rem; color: var(--ink); }
+.event-archive { margin-top: 4rem; }
+.event-details { display: grid; grid-template-columns: auto 1fr; gap: .5rem 1.5rem; margin: 2rem 0; }
+.event-details dt { font-weight: 600; color: var(--ink); }
+.event-details dd { margin: 0; }
+.notice { padding: 1rem 1.5rem; border-left: 3px solid var(--brand); background: var(--muted); }
+.back-link { margin-top: 3rem; }
+@media (max-width: 63.99rem) {
+  .header-inner { flex-wrap: wrap; min-height: 88px; }
+  .site-navigation { width: 100%; justify-content: space-between; }
+  .site-navigation ul { flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .site-header[data-menu-ready] .menu-toggle { display: inline-flex; }
+  .site-header[data-menu-ready] .site-navigation { display: none; }
+  .site-header.menu-open .site-navigation { display: flex; }
+  .hero { min-height: 640px; }
+}
+@media (max-width: 47.99rem) {
+  .site-navigation { align-items: stretch; flex-direction: column; gap: 1rem; padding-top: .5rem; }
+  .site-navigation ul { flex-direction: column; gap: .15rem; }
+  .site-navigation li a { padding: .7rem; }
+  .site-navigation .button { align-self: flex-start; }
+  .hero { min-height: 600px; padding-block: 4.5rem; }
+  .hero-description { font-size: .95rem; }
+  .leadership-grid { gap: 1.25rem; }
+  .leader-copy { padding: 1.25rem .75rem; }
+  .leader-copy h3 { font-size: 1.1rem; }
+  .empty-state { padding: 2rem 1.25rem; }
+}
+@media (max-width: 31.99rem) {
+  .brand { font-size: 1rem; gap: .5rem; }
+  .brand img { width: 46px; height: 46px; }
+  .brand small { max-width: 155px; font-size: .55rem; }
+  .header-inner { gap: .5rem; }
+  .menu-toggle { font-size: .75rem; padding-inline: .5rem; }
+  .leadership-grid { grid-template-columns: minmax(0, 390px); gap: 2rem; }
+  .event-card { grid-template-columns: 64px 1fr; gap: 1rem; padding: 1rem; }
+  .contact-panel, .ministry-card { padding: 1.5rem; }
+}

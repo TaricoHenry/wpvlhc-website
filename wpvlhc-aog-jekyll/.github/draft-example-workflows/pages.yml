@@ -1,0 +1,57 @@
+name: Build and deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+          SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+          SITE_BASEURL: ${{ steps.pages.outputs.base_path }}
+        run: |
+          ruby -ryaml -e 'File.write(File.join(ENV.fetch("RUNNER_TEMP"), "jekyll-pages.yml"), {"url" => ENV.fetch("SITE_ORIGIN"), "baseurl" => ENV.fetch("SITE_BASEURL")}.to_yaml)'
+          bundle exec jekyll build --strict_front_matter --config "_config.yml,$RUNNER_TEMP/jekyll-pages.yml"
+      - name: Check local pages and assets
+        env:
+          SITE_BASEURL: ${{ steps.pages.outputs.base_path }}
+        run: python3 scripts/check_site.py --baseurl "$SITE_BASEURL"
+      - name: Upload built site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

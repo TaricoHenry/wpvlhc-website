@@ -1,0 +1,17 @@
+---
+title: Our sermons
+eyebrow: Listen & grow
+description: Messages and worship from our church community.
+permalink: /sermons/
+wide: true
+---
+{% assign sermons = site.sermons | sort: 'date' | reverse %}
+{% if sermons.size > 0 %}
+  <div class="card-grid">{% for sermon in sermons %}{% include sermon-card.html %}{% endfor %}</div>
+{% else %}
+  <div class="empty-state">
+    <h2>Connect with our church online</h2>
+    <p>Visit our Facebook page for messages, worship, and the latest updates from our church family.</p>
+    <a class="button" href="{{ site.data.church.facebook_url }}">Visit our Facebook page <span aria-hidden="true">↗</span></a>
+  </div>
+{% endif %}

@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="footer-brand" href="{{ '/' | relative_url }}">
+        <img src="{{ site.logo | relative_url }}" width="58" height="58" alt="">
+        <span>{{ site.title }}</span>
+      </a>
+      <p>{{ site.data.church.name }}</p>
+      <p>{{ site.data.church.welcome }}</p>
+      <a class="text-link" href="{{ site.data.church.facebook_url }}">Connect on Facebook <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul class="footer-links">
+        {% for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+        <li><a href="{{ '/news/' | relative_url }}">Church news</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Visit us</h2>
+      <address>
+        <p>{{ site.data.church.address }}</p>
+        <p>{% for phone in site.data.church.phones %}<a href="{{ phone.href }}">{{ phone.label }}</a><br>{% endfor %}</p>
+        <a href="mailto:{{ site.data.church.email }}">{{ site.data.church.email }}</a>
+      </address>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    <a href="{{ '/privacy-policy/' | relative_url }}">Privacy</a>
+  </div>
+</footer>

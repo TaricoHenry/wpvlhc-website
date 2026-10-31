@@ -1,0 +1,46 @@
+---
+title: Church events
+eyebrow: Life together
+description: Stay connected with events in our church community.
+permalink: /events/
+redirect_from:
+  - /calendar-of-events/
+wide: true
+---
+{% assign now = 'now' | date: '%s' | plus: 0 %}
+{% assign events = site.events | sort: 'starts_at' %}
+{% assign upcoming_count = 0 %}
+{% capture upcoming_events %}
+  {% for event in events %}
+    {% assign event_end = event.ends_at | default: event.starts_at | date: '%s' | plus: 0 %}
+    {% if event_end >= now %}
+      {% assign upcoming_count = upcoming_count | plus: 1 %}
+      {% include event-card.html %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+<section aria-labelledby="upcoming-title">
+  <h2 id="upcoming-title">Upcoming events</h2>
+  {% if upcoming_count > 0 %}
+    <div class="event-list">{{ upcoming_events }}</div>
+  {% else %}
+    <div class="empty-state">
+      <p>For upcoming events and announcements, visit our Facebook page or contact the church.</p>
+      <a class="button" href="{{ site.data.church.facebook_url }}">See our Facebook updates <span aria-hidden="true">↗</span></a>
+    </div>
+  {% endif %}
+</section>
+{% capture past_events %}
+  {% for event in events reversed %}
+    {% assign event_end = event.ends_at | default: event.starts_at | date: '%s' | plus: 0 %}
+    {% if event_end < now %}{% include event-card.html %}{% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign past_events_stripped = past_events | strip %}
+{% if past_events_stripped != '' %}
+  <section class="event-archive" aria-labelledby="archive-title">
+    <p class="eyebrow">Looking back</p>
+    <h2 id="archive-title">Past events</h2>
+    <div class="event-list">{{ past_events }}</div>
+  </section>
+{% endif %}

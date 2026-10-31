@@ -1,0 +1,7 @@
+<article class="content-card">
+  <p class="meta"><time datetime="{{ sermon.date | date_to_xmlschema }}">{{ sermon.date | date: '%B %-d, %Y' }}</time></p>
+  <h3><a href="{{ sermon.url | relative_url }}">{{ sermon.title }}</a></h3>
+  {% if sermon.preacher %}<p>{{ sermon.preacher }}</p>{% endif %}
+  <p>{{ sermon.description }}</p>
+  <a class="text-link" href="{{ sermon.url | relative_url }}" aria-label="View sermon: {{ sermon.title | escape }}">View sermon →</a>
+</article>

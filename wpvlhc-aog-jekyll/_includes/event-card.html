@@ -1,0 +1,9 @@
+<article class="event-card">
+  <div class="event-date" aria-hidden="true"><span>{{ event.starts_at | date: '%b' }}</span><strong>{{ event.starts_at | date: '%d' }}</strong><span>{{ event.starts_at | date: '%Y' }}</span></div>
+  <div>
+    <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+    <p class="meta"><time datetime="{{ event.starts_at | date_to_xmlschema }}">{{ event.starts_at | date: '%B %-d, %Y' }}</time>{% if event.location %} · {{ event.location }}{% endif %}</p>
+    {% if event.description %}<p>{{ event.description }}</p>{% endif %}
+    <a class="text-link" href="{{ event.url | relative_url }}" aria-label="Details for {{ event.title | escape }}">Event details →</a>
+  </div>
+</article>

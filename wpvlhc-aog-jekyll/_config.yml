@@ -1,0 +1,84 @@
+title: WPVLHC AOG
+tagline: A place where everyone joins together.
+description: >-
+  World Prayer Vision Life Healing Center AOG in Anna Catherina, Guyana.
+  Connect with our church, explore our ministries, and join us in person or online.
+lang: en-GY
+timezone: America/Guyana
+# Set these when the new repository/domain is ready. See docs/github-pages.md.
+url: ""
+baseurl: ""
+author: World Prayer Vision Life Healing Center AOG
+logo: /assets/images/church/logo.png
+image: /assets/images/church/church-exterior.png
+
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: /news/:title/
+strict_front_matter: true
+liquid:
+  error_mode: strict
+  strict_filters: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+include:
+  - _pages
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+  sermons:
+    output: true
+    permalink: /sermons/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+      image: /assets/images/church/church-exterior.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: WPVLHC AOG
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
+  - scope:
+      path: ""
+      type: sermons
+    values:
+      layout: sermon
+
+sass:
+  style: compressed
+  sourcemap: never
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - HANDOVER.md
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - docs
+  - scripts
+  - vendor
+  - .bundle
+  - .github
+  - .ruby-version
+  - .editorconfig
+  - .gitignore
+  - .jekyll-cache
+  - .sass-cache
+  - "**/README.md"
+  - "**/*LICENSE*"
+  - "**/OFL.txt"

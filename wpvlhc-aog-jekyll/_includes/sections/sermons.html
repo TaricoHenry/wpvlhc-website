@@ -1,0 +1,17 @@
+<section class="section section-muted">
+  <div class="container">
+    {% include section-heading.html eyebrow="Listen & grow" title="Our sermons" description="Connect with our church online for messages and worship." %}
+    {% assign sermons = site.sermons | sort: 'date' | reverse %}
+    {% if sermons.size > 0 %}
+      <div class="card-grid">
+        {% for sermon in sermons limit:3 %}{% include sermon-card.html %}{% endfor %}
+      </div>
+      <p class="section-action"><a class="text-link" href="{{ '/sermons/' | relative_url }}">All sermons →</a></p>
+    {% else %}
+      <div class="empty-state sermon-callout">
+        <p>Worship with us wherever you are.</p>
+        <a class="button" href="{{ site.data.church.facebook_url }}">Visit our Facebook page <span aria-hidden="true">↗</span></a>
+      </div>
+    {% endif %}
+  </div>
+</section>

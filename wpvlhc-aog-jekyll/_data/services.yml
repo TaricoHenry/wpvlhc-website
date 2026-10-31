@@ -1,0 +1,16 @@
+- title: Marriage service
+  description: Speak with us about arranging your marriage service.
+  image: /assets/images/services/marriage.jpg
+  subject: Marriage service enquiry
+- title: Child dedication
+  description: Get in touch to arrange a dedication for your child.
+  image: /assets/images/services/baptism.jpg
+  subject: Child dedication enquiry
+- title: Funeral service
+  description: Contact our church for help arranging a funeral service.
+  image: /assets/images/services/funeral.jpg
+  subject: Funeral service enquiry
+- title: Hall bookings
+  description: Ask about the Olive Sandra Cummings Hall for your special event.
+  image: /assets/images/services/hall.jpg
+  subject: Olive Sandra Cummings Hall enquiry

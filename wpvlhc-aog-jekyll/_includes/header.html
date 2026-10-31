@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+      <img src="{{ site.logo | relative_url }}" width="64" height="64" alt="">
+      <span>{{ site.title }}<small>World Prayer Vision Life Healing Center</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" hidden>
+      <span class="menu-icon" aria-hidden="true"></span><span>Menu</span>
+    </button>
+    <nav class="site-navigation" id="site-navigation" aria-label="Main navigation">
+      <ul>
+        {% for item in site.data.navigation %}
+          {% assign active = false %}
+          {% if page.url == item.url %}{% assign active = true %}{% endif %}
+          {% if item.url != '/' and page.url contains item.url %}{% assign active = true %}{% endif %}
+          <li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% if site.data.church.giving_url != '' %}
+        <a class="button button-small" href="{{ site.data.church.giving_url | escape }}">Give online</a>
+      {% else %}
+        <a class="button button-small" href="{{ '/contact/#giving' | relative_url }}">Giving</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

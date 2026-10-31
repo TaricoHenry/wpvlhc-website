@@ -1,0 +1,16 @@
+---
+title: News & announcements
+eyebrow: Church life
+description: Updates from World Prayer Vision Life Healing Center AOG.
+permalink: /news/
+wide: true
+---
+{% if site.posts.size > 0 %}
+  <div class="card-grid">{% for post in site.posts %}{% include post-card.html %}{% endfor %}</div>
+{% else %}
+  <div class="empty-state">
+    <h2>Stay connected</h2>
+    <p>For our latest announcements, visit our Facebook page or get in touch with the church.</p>
+    <a class="button" href="{{ site.data.church.facebook_url }}">See our Facebook updates <span aria-hidden="true">↗</span></a>
+  </div>
+{% endif %}

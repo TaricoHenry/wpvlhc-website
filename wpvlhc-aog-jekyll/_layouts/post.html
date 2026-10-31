@@ -1,0 +1,8 @@
+---
+layout: page
+---
+<article class="prose">
+  <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time> · {{ page.author }}</p>
+  {{ content }}
+</article>
+<p class="back-link"><a href="{{ '/news/' | relative_url }}">← All church news</a></p>

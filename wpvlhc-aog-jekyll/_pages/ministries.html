@@ -1,0 +1,21 @@
+---
+title: Ministries
+eyebrow: Called to serve
+description: Find your place in the life of our church.
+permalink: /ministries/
+redirect_from:
+  - /departments-and-teams-for-service/
+wide: true
+---
+<p class="page-intro">At World Prayer Vision Life Healing Center there are many ministries of service. Each of us is called to serve. Get in touch to learn how you can take part.</p>
+<div class="ministry-grid">
+  {% for ministry in site.data.ministries %}
+    <article class="ministry-card">
+      <span class="ministry-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <h2>{{ ministry.name }}</h2>
+      <p>{{ ministry.description }}</p>
+      {% assign subject = ministry.name | append: ' enquiry' %}
+      <a class="text-link" href="mailto:{{ site.data.church.email }}?subject={{ subject | uri_escape }}" aria-label="Ask about {{ ministry.name | escape }}">Get involved →</a>
+    </article>
+  {% endfor %}
+</div>

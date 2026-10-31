@@ -1,0 +1,15 @@
+---
+layout: page
+---
+{% assign event_end = page.ends_at | default: page.starts_at | date: '%s' | plus: 0 %}
+{% assign now = 'now' | date: '%s' | plus: 0 %}
+<article class="prose">
+  {% if event_end < now %}<p class="notice">Archived event. This event has already taken place.</p>{% endif %}
+  <dl class="event-details">
+    <dt>Date</dt><dd><time datetime="{{ page.starts_at | date_to_xmlschema }}">{{ page.starts_at | date: '%A, %B %-d, %Y' }}</time></dd>
+    {% if page.time_confirmed %}<dt>Time</dt><dd>{{ page.starts_at | date: '%-I:%M %p' }}{% if page.ends_at %} – {{ page.ends_at | date: '%-I:%M %p' }}{% endif %} ({{ page.timezone_label | default: 'Guyana time' }})</dd>{% endif %}
+    {% if page.location %}<dt>Location</dt><dd>{{ page.location }}</dd>{% endif %}
+  </dl>
+  {{ content }}
+</article>
+<p class="back-link"><a href="{{ '/events/' | relative_url }}">← All events</a></p>
